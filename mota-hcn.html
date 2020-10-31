@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xay dung lop mo ta hinh chu nhat</title>
+    <script src="Rectangle.js"></script>
+</head>
+<body>
+<canvas id="rectangle" width="200px" height="100px" style="border:2px solid #d3d3d3;"></canvas>
+<input type="number" id="rect-width" placeholder="input width">
+<input type="number" id="rect-length" placeholder="input length">
+<button id="Area" oninput="showArea()" onclick="showArea()">Show area</button>
+<button id="Perimeter" oninput="showPeri()" onclick="showPeri()">Show Perimeter</button>
+<p id="result" onclick=""></p>
+<script>
+    let length = document.getElementById("rect-length");
+    let width = document.getElementById("rect-width");
+    function showArea() {
+        let rect = new Rectangle(width.value, length.value);
+        let result = rect.getArea();
+        document.getElementById("Area").innerHTML = showResult(result);
+    }
+    function showResult(result){
+        document.getElementById("result").innerHTML = 'Result ' + result;
+    }
+    function showPeri(){
+        let rect = new Rectangle(width.value, length.value);
+        let result = rect.getPerimeter();
+        document.getElementById("Perimeter").innerHTML = showResult(result);
+    }
+    function drawRect(rect){
+        let canvas = document.getElementById('rectangle');
+        rect.draw(canvas);
+    }
+</script>
+</body>
+</html>
